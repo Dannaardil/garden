@@ -1,7 +1,10 @@
 import {
-    getBossFullNameAndEmail
-    } from "./module/employees.js";
-console.log(await getBossFullNameAndEmail())
+   
+    getStatus,
+  
+    
+    } from "./module/requests.js";
+console.log(await getStatus())
 
 
 

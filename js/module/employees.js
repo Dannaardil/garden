@@ -1,5 +1,5 @@
 export const getAllEmployeesWithBossAndCodeServer = async()=>{
-    let es = await fetch("http://localhost:5502/employees?code_boss=7")
+    let res = await fetch("http://localhost:5509/employees?code_boss=7")
     let data = await res.json();
     let dataUpdate = [];
     data.forEach(val =>{
@@ -17,7 +17,7 @@ export const getAllEmployeesWithBossAndCodeServer = async()=>{
 
 //4 
 export const getBossFullNameAndEmail = async()=>{
-   let res = await fetch("http://localhost:5502/employees");
+   let res = await fetch("http://localhost:5509/employees");
    let data = await res.json();
    let dataUpdate = {};
    data.forEach(val =>{
@@ -36,14 +36,19 @@ export const getBossFullNameAndEmail = async()=>{
 
 ///5
 export const getAll = async()=>{
-    let res = await fetch("http://localhost:5502/employees?position=Representantes");
+    let res = await fetch("http://localhost:5509/employees?position_ne=Representante%20Ventas")
     let data = await res.json();
     let dataUpdate = [];
-    data.forEach(val =>{
+    data.forEach(val => {
         dataUpdate.push({
             nombre: val.name,
             apellidos: `${val.lastname1} ${val.lastname2}`,
             puesto: val.position
         })
-    })
+    });
+    return dataUpdate;
 }
+
+
+
+
