@@ -1,3 +1,8 @@
+
+//3. Devuelve un listado con el nombre, 
+//apellidos y email de los empleados cuyo jefe tiene un código 
+//de jefe igual a 7.
+
 export const getAllEmployeesWithBossAndCodeServer = async()=>{
     let res = await fetch("http://localhost:5509/employees?code_boss=7")
     let data = await res.json();
@@ -16,6 +21,9 @@ export const getAllEmployeesWithBossAndCodeServer = async()=>{
 
 
 //4 
+//4. Devuelve el nombre del puesto, nombre, apellidos y email del jefe de la empresa.
+
+
 export const getBossFullNameAndEmail = async()=>{
    let res = await fetch("http://localhost:5509/employees");
    let data = await res.json();
@@ -34,7 +42,8 @@ export const getBossFullNameAndEmail = async()=>{
 
 }
 
-///5
+///5. Devuelve un listado con el nombre, apellidos y puesto de aquellos empleados que no 
+//sean representantes de ventas.
 export const getAll = async()=>{
     let res = await fetch("http://localhost:5509/employees?position_ne=Representante%20Ventas")
     let data = await res.json();

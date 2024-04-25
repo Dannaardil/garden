@@ -1,10 +1,10 @@
 import {
    
-    getStatus,
-  
+    getTwoDaysBefore
     
     } from "./module/requests.js";
-console.log(await getStatus())
+console.log(await getTwoDaysBefore
+    ())
 
 
 

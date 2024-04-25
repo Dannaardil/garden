@@ -1,0 +1,63 @@
+//8
+export const getAllClientsBefore2008 = async()=>{
+    let res = await fetch("http://localhost:5505/payments")
+    let data = await res.json();
+    const all = new Set();
+    data.forEach(val => {
+        if (val.date_payment.split("-")[0]==="2008"){
+          all.add(
+            val.code_client)
+
+          
+        }
+        
+    });
+
+    return Array.from(all)
+    }
+
+
+
+////12  Devuelve un listado con todos los pagos que se realizaron 
+//en el año 2008 mediante Paypal. Ordene el resultado de mayor a menor.
+
+export const getPaypalPaymentsIn2008 = async()=>{
+
+ let res = await fetch("http://localhost:5505/payments?payment=PayPal")
+  let data = await res.json();
+  let dataUpdated = data.filter (val => ( val.date_payment[3] === "8" ))
+    .map(val => {
+        return {
+          codigo_cliente:  val.code_client, 
+          fecha_de_pago: val.date_payment,
+            metodo_de_pago : val.payment,
+            total : val.total, 
+
+          
+        }
+    })
+    return dataUpdated.sort();
+}
+
+//13 
+export const getAllPayOptions = async()=>{
+  let res = await fetch("http://localhost:5505/payments")
+  let data = await res.json();
+  const all = new Set();
+  data.forEach(val => {
+     
+        all.add(
+          val.payment
+        )
+
+       
+      
+      
+  });
+
+  return Array.from(all)
+  }
+
+
+
+
