@@ -35,4 +35,17 @@ export const getAllMadridClientsWith11And33Code = async()=>{
        })
        return dataUpdated;
    }
-   
+   //1. Obtén un listado con el nombre de cada cliente y el nombre y apellido de su representante de ventas.
+   export const getAllClientsAndSalesManager = async()=>{
+    let res = await fetch("http://localhost:5501/clients")
+    let data = await res.json();
+    let dataUpdate = [];
+    data.forEach(val => {
+        dataUpdate.push({
+            nombre: val.contact_name,
+            apellidos: `${val.lastname1} ${val.lastname2}`,
+            representante: val.code_employee_sales_manager
+        })
+    });
+    return dataUpdate;
+}

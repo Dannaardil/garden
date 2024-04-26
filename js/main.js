@@ -1,9 +1,9 @@
 import {
    
-    getTwoDaysBefore
+    getAllClientsAndSalesManager
     
     } from "./module/requests.js";
-console.log(await getTwoDaysBefore
+console.log(await getAllClientsAndSalesManager
     ())
 
 
