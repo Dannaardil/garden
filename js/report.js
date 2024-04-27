@@ -1,7 +1,8 @@
 // import "./components/clock.js";
 import {getAllOfficesCodeAndCity}from "./module/offices.js"
 import {getAllOfficesFromSpainCityAndMovil} from "./module/offices.js"
-import {getAllEmployeesWithBossAndCodeServer}from "./module/employees.js"
+import {getAllEmployeesWithBossAndCodeServer,getBossFullNameAndEmail}from "./module/employees.js"
+
 
 // import { getClientsEmploy } from "./module/clients.js";
 
@@ -115,3 +116,31 @@ queryAboutTable3.addEventListener("click", async(e)=>{
 })
 
 ////////////////4 .  Devuelve el nombre del puesto, nombre, apellidos y email del jefe de la empresa.
+
+queryAboutTable4.addEventListener("click", async(e)=>{
+    let [,report__container] = queryAboutTable4.children
+    if(!report__container.innerHTML){
+        let data = await getBossFullNameAndEmail(); //// cambiar por la funcion a usar 
+        let plantilla = "";
+        console.log(data);
+      
+            plantilla += `
+                <div class="report__card">
+                <div class="card__title">
+                 
+                </div>
+                <div class="card__body">
+                    <div class="body__marck">
+                 
+                    <p><b>Nombre: </b>${data.nombre}</p>
+                    <p><b>Puesto: </b>${data.puesto}</p>
+                    <p><b>Apellido: </b>${data.apellidos}</p>
+                    <p><b>Email: </b>${data.email}</p>
+                    </div>
+                </div>
+            </div>
+            `;
+        
+        report__container.innerHTML = plantilla;
+    }
+})

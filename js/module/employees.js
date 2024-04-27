@@ -30,9 +30,10 @@ export const getBossFullNameAndEmail = async()=>{
    let dataUpdate = {};
    data.forEach(val =>{
     if(val.code_boss == null){
+        dataUpdate.puesto = val.position
         dataUpdate.nombre = val.name
-        dataUpdate.apellido = val.apellidos = `${val.lastname} ${val.lastname2}`
-        dataUpdate.email = val.email.match(/(?<=\[)[^\[\]]+@[^@\[\]]+(?=\])/);
+        dataUpdate.apellido = val.apellidos = `${val.lastname1} ${val.lastname2}`
+        dataUpdate.email = val.email.match(/(?<=\[)[^\[\]]+@[^@\[\]]+(?=\])/)[0];
 
     }
     
