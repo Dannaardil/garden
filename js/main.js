@@ -1,10 +1,9 @@
 import {
    
-    getAllClientsAndSalesManager
+    getClients
     
-    } from "./module/requests.js";
-console.log(await getAllClientsAndSalesManager
-    ())
+    } from "./module/clients.js";
+console.log(await getClients());
 
 
 

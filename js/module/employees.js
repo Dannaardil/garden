@@ -59,5 +59,27 @@ export const getAll = async()=>{
 }
 
 
+//1 // Multitabla
+//Obtén un listado con el nombre de cada cliente y el nombre y apellido de su representante de ventas.
+// se uso tmb para la consulta 2 de multitabla
+export const getSalesManager =  async()=>{
+    let res = await fetch("http://localhost:5509/employees?position=Representante%20Ventas")
+    let data = await res.json();
+    let dataUpdate = [];
+    data.forEach(val => {
+        dataUpdate.push({
+            nombre: val.name,
+            apellidos: `${val.lastname1} ${val.lastname2}`,
+            puesto: val.position,
+            codigo: val.employee_code
+        
+        })
+
+    })
+    
+    
+    return dataUpdate;
+
+}
 
 

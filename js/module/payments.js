@@ -58,6 +58,28 @@ export const getAllPayOptions = async()=>{
   return Array.from(all)
   }
 
+//MULTITABLA 2 : 
+//Muestra el nombre de los clientes que hayan 
+//realizado pagos junto con el 
+//nombre de sus representantes de ventas.
+
+
+export const getPayments = async()=>{
+  let res = await fetch("http://localhost:5505/payments")
+  let data = await res.json();
+  let dataPay = new Set();
+  data.forEach(val => {
+    dataPay.add({
+  codigo_cliente: val.code_client, 
+   })
+  })
+  
+
+  
+  return Array.from(dataPay)
+}
+
+
 
 
 
