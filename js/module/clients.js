@@ -120,33 +120,19 @@ export const getClients = async()=>{
 //3 multitabla
 
 export const getClientsNoPay= async()=>{
-
     let res = await fetch("http://localhost:5501/clients")
     let dataClients = await res.json();
+
+    let clientsAndManager = await getClients();
     let dataUpdate = [];
-    let dataManager = await getSalesManager();
-    let dataPayments = await getPayments();
-    dataClients.forEach(val => {
-        dataPayments.forEach( pay =>{
-            dataManager.forEach(dat =>{
-            
-                if(val.code_employee_sales_manager == dat.codigo && val.client_code!=pay.codigo_client_pay){
-                    dataUpdate.push({
-                        nombre_cliente: val.contact_name,
-                        nombre_representante: dat.nombre,
-                        codigo_cliente: val.code_employee_sales_manager,
-                        codigo_pago: pay.codigo_client_pay,
-                        codigo_cliente: val.client_code,
-                        apellidos: dat.apellidos,
-                        representante_cod: dat.codigo
-                    })
-                }
-            
-            })
-        })
-   
-    
+    clientsAndManager.forEach(client => { 
+        
+        
+
+
     })
+
+    
  return dataUpdate;
 
 }

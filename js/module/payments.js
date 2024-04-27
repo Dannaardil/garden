@@ -67,16 +67,16 @@ export const getAllPayOptions = async()=>{
 export const getPayments = async()=>{
   let res = await fetch("http://localhost:5505/payments")
   let data = await res.json();
-  let dataPay = new Set();
+  let dataPay = [];
   data.forEach(val => {
-    dataPay.add({
+    dataPay.push({
   codigo_cliente: val.code_client, 
    })
   })
   
 
   
-  return Array.from(dataPay)
+  return dataPay
 }
 
 
