@@ -8,8 +8,9 @@ export const getStatus = async()=>{
     data.forEach(val => {
         allStatus.add(val.status);
     });
+   let status=  Array.from(allStatus);
+    return status
 
-    return Array.from(allStatus);
 }
 
 
