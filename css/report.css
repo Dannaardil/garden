@@ -7,6 +7,8 @@
     font-family: "Roboto-Regular";
 }
 
+
+
 body {
     background: var(--color3);
 }
@@ -111,7 +113,7 @@ body {
     /* background: violet; */
     margin-top: var(--layout-box-y);
     height: 290px;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 }
 .report__details details{
     margin-left: var(--layout-box-x);
