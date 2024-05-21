@@ -3,7 +3,7 @@
 
 export const getMoreThan100AndOrnamental = async()=>{
 
-    let res = await fetch("http://localhost:5506/product?gama=Ornamentales")
+    let res = await fetch("http://localhost:5326/product?gama=Ornamentales")
      let data = await res.json();
      let dataUpdated = data.filter (val => ( val.stock >100))
        .map(val => {
@@ -19,7 +19,7 @@ export const getMoreThan100AndOrnamental = async()=>{
 
    
    export const getAllProducts = async ()=>{
-    let res=  await fetch("http://localhost:5506/product")
+    let res=  await fetch("http://localhost:5326/product")
     let data= await res.json();
     let dataUpdate=[];
     data.forEach(val => {
