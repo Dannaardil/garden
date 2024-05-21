@@ -83,4 +83,47 @@ export const getSalesManager =  async()=>{
 
 }
 
+//multitable 8 
+export const getAllEmployeesWithBoss = async() => {
+    let res = await fetch("http://localhost:5502/employees")
+    let dataEmployees = await res.json()
+    let dataUpdate = []
+
+    for (let employee of dataEmployees) {
+        for (let boss of dataEmployees) {
+            if (employee.code_boss == boss.employee_code) {
+                dataUpdate.push({
+                    nombreEmpleado: `${employee.name} ${employee.lastname1} ${employee.lastname2}`,
+                    nombreJefe: `${boss.name} ${boss.lastname1} ${boss.lastname2}`
+                })
+            }
+        }
+    }
+    return dataUpdate
+}
+
+//multitable 9 
+export const getAllEmployeesWithBossAndBoss = async() => {
+    let res = await fetch("http://localhost:5502/employees")
+    let dataEmployees = await res.json()
+    let dataUpdate = []
+
+    for (let employee of dataEmployees) {
+        for (let boss of dataEmployees) {
+            if (employee.code_boss == boss.employee_code) {
+                for (let bigBoss of dataEmployees){
+                    if (boss.code_boss == bigBoss.employee_code){
+                        dataUpdate.push({
+                            nombreEmpleado: `${employee.name} ${employee.lastname1} ${employee.lastname2}`,
+                            nombreJefe: `${boss.name} ${boss.lastname1} ${boss.lastname2}`,
+                            nombreJefedelJefe: `${bigBoss.name} ${bigBoss.lastname1} ${bigBoss.lastname2}`
+                        })
+                    }
+                }
+            }
+        }
+    }
+    return dataUpdate
+}
+
 
