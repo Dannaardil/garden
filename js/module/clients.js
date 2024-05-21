@@ -4,7 +4,7 @@
 
 
 export const getSpainClients = async()=>{
-    let res = await fetch("http://localhost:5321/clients?country=Spain")
+    let res = await fetch("http://172.16.101.146:5321/clients?country=Spain")
     let data =  await res.json()
     let dataUpdate = [];
     data.forEach(val => {
@@ -17,7 +17,7 @@ export const getSpainClients = async()=>{
     return dataUpdate;
 }
 // export const getSpainClients = async()=>{
-//     let res = await fetch("http://localhost:5321/clients?country=Spain")
+//     let res = await fetch("http://172.16.101.146:5321/clients?country=Spain")
 //     let data = await res.json();
 //     let dataUpdate = [];
 //     data.forEach(val => {
@@ -36,7 +36,7 @@ export const getSpainClients = async()=>{
 
 export const getAllMadridClientsWith11And33Code = async()=>{
 
-    let res = await fetch("http://localhost:5321/clients?city=Madrid")
+    let res = await fetch("http://172.16.101.146:5321/clients?city=Madrid")
      let data = await res.json();
      let dataUpdated = data.filter (val => ( val.code_employee_sales_manager == "11" || val.code_employee_sales_manager == "33"))
        .map(val => {
@@ -51,7 +51,7 @@ export const getAllMadridClientsWith11And33Code = async()=>{
    }
    //1. Obtén un listado con el nombre de cada cliente y el nombre y apellido de su representante de ventas.
 //    export const getAllClientsAndSalesManager = async()=>{
-//     let res = await fetch("http://localhost:5321/clients")
+//     let res = await fetch("http://172.16.101.146:5321/clients")
 //     let data = await res.json();
 //     let dataUpdate = [];
 //     data.forEach(val => {
@@ -72,7 +72,7 @@ export const getAllMadridClientsWith11And33Code = async()=>{
 import { getSalesManager } from "./employees.js";
 export const getClientsName = async()=>{
 
-    let res = await fetch("http://localhost:5321/clients")
+    let res = await fetch("http://172.16.101.146:5321/clients")
     let dataClients = await res.json();
     let dataUpdate = [];
     let dataManager = await getSalesManager();
@@ -102,7 +102,7 @@ import { getPayments } from "./payments.js";
 
 export const getClients = async()=>{
 
-    let res = await fetch("http://localhost:5321/clients")
+    let res = await fetch("http://172.16.101.146:5321/clients")
     let dataClients = await res.json();
     let dataUpdate = new Set;
     let dataManager = await getSalesManager();
@@ -137,7 +137,7 @@ export const getClients = async()=>{
 
 // import { getPayments } from "./payments.js";
 export const getClientsNoPay = async() => {
-    let res = await fetch("http://localhost:5321/clients");
+    let res = await fetch("http://172.16.101.146:5321/clients");
     let dataClients = await res.json();
     let dataSaleAgents = await getSalesManager();
     let dataPayments = await getPayments();
@@ -262,7 +262,7 @@ export const getAllClientsWithLateRequests = async() => {
 }
 
 export const getAllClients = async ()=>{
-    let res =await fetch("http://localhost:5321/clients")
+    let res =await fetch("http://172.16.101.146:5321/clients")
     let data=await res.json();
     let dataUpdate = [];
     let clientCodes = new Set();

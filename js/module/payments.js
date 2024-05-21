@@ -2,7 +2,7 @@
 //realizaron algún pago en 2008. Tenga en cuenta que 
 //deberá eliminar aquellos códigos de cliente que aparezcan repetidos
 export const getAllClientsBefore2008 = async()=>{
-    let res = await fetch("http://localhost:5325/payments")
+    let res = await fetch("http://172.16.101.146:5325/payments")
     let data = await res.json();
     const all = new Set();
     data.forEach(val => {
@@ -25,7 +25,7 @@ export const getAllClientsBefore2008 = async()=>{
 
 export const getPaypalPaymentsIn2008 = async()=>{
 
- let res = await fetch("http://localhost:5325/payments?payment=PayPal")
+ let res = await fetch("http://172.16.101.146:5325/payments?payment=PayPal")
   let data = await res.json();
   let dataUpdated = data.filter (val => ( val.date_payment[3] === "8" ))
     .map(val => {
@@ -43,7 +43,7 @@ export const getPaypalPaymentsIn2008 = async()=>{
 
 //14
 export const getAllPayOptions = async()=>{
-  let res = await fetch("http://localhost:5325/payments")
+  let res = await fetch("http://172.16.101.146:5325/payments")
   let data = await res.json();
   const all = new Set();
   data.forEach(val => {
@@ -67,7 +67,7 @@ export const getAllPayOptions = async()=>{
 
 
 export const getPayments = async()=>{
-  let res = await fetch("http://localhost:5325/payments")
+  let res = await fetch("http://172.16.101.146:5325/payments")
   let data = await res.json();
   let dataPay = [];
   data.forEach(val => {

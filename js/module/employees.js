@@ -4,7 +4,7 @@
 //de jefe igual a 7.
 
 export const getAllEmployeesWithBossAndCodeServer = async()=>{
-    let res = await fetch("http://localhost:5509/employees?code_boss=7")
+    let res = await fetch("http://172.16.101.146:5509/employees?code_boss=7")
     let data = await res.json();
     let dataUpdate = [];
     data.forEach(val =>{
@@ -25,7 +25,7 @@ export const getAllEmployeesWithBossAndCodeServer = async()=>{
 
 
 export const getBossFullNameAndEmail = async()=>{
-   let res = await fetch("http://localhost:5509/employees");
+   let res = await fetch("http://172.16.101.146:5509/employees");
    let data = await res.json();
    let dataUpdate = {};
    data.forEach(val =>{
@@ -46,7 +46,7 @@ export const getBossFullNameAndEmail = async()=>{
 ///5. Devuelve un listado con el nombre, apellidos y puesto de aquellos empleados que no 
 //sean representantes de ventas.
 export const getAllNotSellManager = async()=>{
-    let res = await fetch("http://localhost:5509/employees?position_ne=Representante%20Ventas")
+    let res = await fetch("http://172.16.101.146:5509/employees?position_ne=Representante%20Ventas")
     let data = await res.json();
     let dataUpdate = [];
     data.forEach(val => {
@@ -64,7 +64,7 @@ export const getAllNotSellManager = async()=>{
 //Obtén un listado con el nombre de cada cliente y el nombre y apellido de su representante de ventas.
 // se uso tmb para la consulta 2 de multitabla
 export const getSalesManager =  async()=>{
-    let res = await fetch("http://localhost:5509/employees?position=Representante%20Ventas")
+    let res = await fetch("http://172.16.101.146:5509/employees?position=Representante%20Ventas")
     let data = await res.json();
     let dataUpdate = [];
     data.forEach(val => {
@@ -85,7 +85,7 @@ export const getSalesManager =  async()=>{
 
 //multitable 8 
 export const getAllEmployeesWithBoss = async() => {
-    let res = await fetch("http://localhost:5322/employees")
+    let res = await fetch("http://172.16.101.146:5322/employees")
     let dataEmployees = await res.json()
     let dataUpdate = []
 
@@ -104,7 +104,7 @@ export const getAllEmployeesWithBoss = async() => {
 
 //multitable 9 
 export const getAllEmployeesWithBossAndBoss = async() => {
-    let res = await fetch("http://localhost:5322/employees")
+    let res = await fetch("http://172.16.101.146:5322/employees")
     let dataEmployees = await res.json()
     let dataUpdate = []
 

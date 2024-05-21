@@ -732,7 +732,7 @@ attributeChangedCallback(name, old, now) {
     if(name=="logic" && now=="office_2") this.getAllOfficesFromSpainCityAndMovilDesing()
     if(name=="logic" && now=="employees_3") this.getAllEmployeesWithBossAndCodeSeverDesing()
     if(name=="logic" && now=="employees_4") this.getBossFullNameAndEmailDesing()
-    if(name=="logic" && now=="employees_5") this.getAllNotRVDesing()
+    if(name=="logic" && now=="employees_5") this.getAllNotSellManagerDesing()
     if(name=="logic" && now=="clients_6") this.getSpainClientsDesing()
     if(name=="logic" && now=="requests_7") this.getAllStatusDesing()
     if(name=="logic" && now=="payments_8") this.getAllClientsBefore2008Desing()
