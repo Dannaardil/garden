@@ -85,7 +85,7 @@ export const getSalesManager =  async()=>{
 
 //multitable 8 
 export const getAllEmployeesWithBoss = async() => {
-    let res = await fetch("http://localhost:5502/employees")
+    let res = await fetch("http://localhost:5322/employees")
     let dataEmployees = await res.json()
     let dataUpdate = []
 
@@ -104,7 +104,7 @@ export const getAllEmployeesWithBoss = async() => {
 
 //multitable 9 
 export const getAllEmployeesWithBossAndBoss = async() => {
-    let res = await fetch("http://localhost:5502/employees")
+    let res = await fetch("http://localhost:5322/employees")
     let dataEmployees = await res.json()
     let dataUpdate = []
 
