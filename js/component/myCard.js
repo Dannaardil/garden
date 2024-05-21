@@ -730,7 +730,7 @@ static get observedAttributes() {
 attributeChangedCallback(name, old, now) {
     if(name=="logic" && now=="office_1") this.getAllOfficesCodeAndCityDesing()
     if(name=="logic" && now=="office_2") this.getAllOfficesFromSpainCityAndMovilDesing()
-    if(name=="logic" && now=="employees_3") this.getAllEmployeesWithBossAndCodeSevenDesing()
+    if(name=="logic" && now=="employees_3") this.getAllEmployeesWithBossAndCodeSeverDesing()
     if(name=="logic" && now=="employees_4") this.getBossFullNameAndEmailDesing()
     if(name=="logic" && now=="employees_5") this.getAllNotRVDesing()
     if(name=="logic" && now=="clients_6") this.getSpainClientsDesing()
@@ -746,7 +746,7 @@ attributeChangedCallback(name, old, now) {
     if(name=="logic" && now=="clients_16") this.getAllMadridClientsWith11And33CodeDesing()
     if(name=="logic" && now=="clients_17") this.getClientsNameDesing()
     if(name=="logic" && now=="clients_18") this.getClientsPayDesing()
-    if(name=="logic" && now=="clients_19") this.getClientNoPayDesing()
+    if(name=="logic" && now=="clients_19") this.getClientsNoPayDesing()
     if(name=="logic" && now=="clients_20") this.getClientsPayDesing()
     if(name=="logic" && now=="clients_21") this.getClientNoPayAndSMDesing()
     if(name=="logic" && now=="office_22") this.getOfficesWithClientsFromFuenlabradaDesing()

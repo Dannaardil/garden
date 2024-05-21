@@ -194,7 +194,7 @@ export const getClientsPay = async () => {
 // 2. 5. Devuelve el nombre de los clientes que **no** hayan hecho pagos y el nombre de sus representantes junto con la ciudad de la oficina a la que pertenece el representante.
 
 export const getClientNoPayAndSM= async () => {
-    let clientManager = await getClientNoPayAndSM();
+    let clientManager = await getClientsNoPay();
     let offices = await getAllOfficesCodeAndCity();
     let dataUpdate = [];
 

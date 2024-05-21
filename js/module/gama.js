@@ -1,11 +1,11 @@
 // 2. 11. Devuelve un listado de las diferentes gamas de producto que ha comprado cada cliente.
-import { getAllproduct } from "./product.js";
+import { getAllProducts } from "./product.js";
 import { getAllRequests } from "./requests.js";
 import { getAllClients } from "./clients.js";
 
 export const getAllGamas = async () => {
     let res = await fetch("http://localhost:5323/gama");
-    let dataProductos = await getAllproduct();
+    let dataProductos = await getAllProducts();
     let dataRequestDetails = await res.json();
     let dataRequests = await getAllRequests();
     let dataClients = await getAllClients();
