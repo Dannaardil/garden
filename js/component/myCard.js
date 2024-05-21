@@ -273,8 +273,8 @@ async getTwoDaysBeforeDesing() {
 // 11. Devuelve un listado de todos los pedidos que fueron **rechazados** en `2009`.
 
 
-async getAllRejected2009Desing() {
-    let data = await getAllRejected2009()
+async rejectedRequestsIn2009Desing() {
+    let data = await rejectedRequestsIn2009()
     data.forEach(val => {
         this.shadowRoot.innerHTML += /*html*/ `
             <div class="report__card">
@@ -490,8 +490,8 @@ async getClientsDesing() {
 
 // 2. 3. Muestra el nombre de los clientes que **no** hayan realizado pagos junto con el nombre de sus representantes de ventas.
 
-async getClientNoPayAndSMDesing() {
-    let data = await getClientNoPayAndSM()
+async getClientsNoPayDesing() {
+    let data = await getClientsNoPay()
     data.forEach(val => {
         this.shadowRoot.innerHTML += /*html*/ `
             <div class="report__card">
@@ -697,8 +697,8 @@ async getAllClientsWithLateRequestsDesing() {
 // 2. 11. Devuelve un listado de las diferentes gamas de producto que ha comprado cada cliente.
 
 
-async getAllGamasByClientDesing() {
-    let data = await getAllGamasByClient()
+async getAllGamasDesing() {
+    let data = await getAllGamas()
     data.forEach(val => {
         this.shadowRoot.innerHTML += /*html*/ `
             <div class="report__card">
@@ -746,7 +746,7 @@ attributeChangedCallback(name, old, now) {
     if(name=="logic" && now=="clients_16") this.getAllMadridClientsWith11And33CodeDesing()
     if(name=="logic" && now=="clients_17") this.getClientsNameDesing()
     if(name=="logic" && now=="clients_18") this.getClientsPayDesing()
-    if(name=="logic" && now=="clients_19") this.getClientNoPayAndSMDesing()
+    if(name=="logic" && now=="clients_19") this.getClientNoPayDesing()
     if(name=="logic" && now=="clients_20") this.getClientsPayDesing()
     if(name=="logic" && now=="clients_21") this.getClientNoPayAndSMDesing()
     if(name=="logic" && now=="office_22") this.getOfficesWithClientsFromFuenlabradaDesing()
@@ -754,7 +754,7 @@ attributeChangedCallback(name, old, now) {
     if(name=="logic" && now=="employees_24") this.getAllEmployeesWithBossDesing()
     if(name=="logic" && now=="employees_25") this.getAllEmployeesWithBossAndBossDesing()
     if(name=="logic" && now=="clients_26") this.getAllClientsWithLateRequestsDesing()
-    if(name=="logic" && now=="gama_27") this.getAllGamasByClientDesing()
+    if(name=="logic" && now=="gama_27") this.getAllGamasDesing()
 
 
 
