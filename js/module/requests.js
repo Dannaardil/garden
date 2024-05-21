@@ -2,7 +2,7 @@
 
 ////7
 export const getStatus = async()=>{
-    let res = await fetch("http://localhost:5508/requests")
+    let res = await fetch("http://localhost:5328/requests")
     let data = await res.json();
     const allStatus = new Set();
     data.forEach(val => {
@@ -23,7 +23,7 @@ export const getStatus = async()=>{
 //==========================================
 
 export const  getNotInTime = async () =>{
-    let res = await fetch("http://localhost:5508/requests?date_request")
+    let res = await fetch("http://localhost:5328/requests?date_request")
     let data = await res.json();
     let dataUpdate = [];
     data.forEach(val => {
@@ -48,7 +48,7 @@ export const  getNotInTime = async () =>{
     //10 Devuelve un listado con el código de pedido, código de cliente, fecha esperada y fecha de entrega de 
     //los pedidos cuya fecha de entrega ha sido al menos dos días antes de la fecha esperada.
     export const getTwoDaysBefore = async () =>{
-        let res = await fetch("http://localhost:5508/requests?status=Entregado")
+        let res = await fetch("http://localhost:5328/requests?status=Entregado")
         let data = await res.json();
         let dataUpdate = [];
         data.forEach(val => {
@@ -88,7 +88,7 @@ export const  getNotInTime = async () =>{
 //que fueron rechazados en 2009.
 
 export const rejectedRequestsIn2009 = async()=>{
-    let res = await fetch("http://localhost:5508/requests?status=Rechazado")
+    let res = await fetch("http://localhost:5328/requests?status=Rechazado")
     let data = await res.json();
     let dataUpdated = data.filter (val => (val.date_request != null && val.date_request[3] === "9"))
     .map(val => {
@@ -105,7 +105,7 @@ export const rejectedRequestsIn2009 = async()=>{
 ///12 Devuelve un listado de todos los pedidos que han sido entregados en el mes de enero de cualquier año.
 
 export const rejectedRequestsInJanuary= async()=>{
-    let res = await fetch("http://localhost:5508/requests?status=Entregado")
+    let res = await fetch("http://localhost:5328/requests?status=Entregado")
     let data = await res.json();
     let dataUpdated = data.filter (val => (val.date_delivery != null && val.date_delivery[5] === "0" && val.date_delivery[6]== "1"))
     .map(val => {
@@ -123,7 +123,7 @@ export const rejectedRequestsInJanuary= async()=>{
   
 
 export const getAllRequests =async ()=>{
-    let res= await fetch("http://localhost:5508/requests")
+    let res= await fetch("http://localhost:5328/requests")
     let data= await res.json();
    let dataUpdate = []
    data.forEach(val=>{
@@ -154,7 +154,7 @@ export const getAllRequests =async ()=>{
     // }
 
 // export const getAllNotInTime = async()=>{
-//     let res = await fetch("http://localhost:5508/requests?status=Entregado")
+//     let res = await fetch("http://localhost:5328/requests?status=Entregado")
 //     let data = await res.json();
 //     const dataUpdated =  [];
 
