@@ -4,7 +4,7 @@
 
 
 export const getSpainClients = async()=>{
-    let res = await fetch("http://localhost:5501/clients?country=Spain")
+    let res = await fetch("http://localhost:5321/clients?country=Spain")
     let data =  await res.json()
     let dataUpdate = [];
     data.forEach(val => {
@@ -16,13 +16,27 @@ export const getSpainClients = async()=>{
     });
     return dataUpdate;
 }
+// export const getSpainClients = async()=>{
+//     let res = await fetch("http://localhost:5321/clients?country=Spain")
+//     let data = await res.json();
+//     let dataUpdate = [];
+//     data.forEach(val => {
+//         dataUpdate.push({
+//             nombre: val.client_name,
+//             nacionalidad: val.country,
+//             codigo:val.code_employee_sales_manager,
+//             ciudad: val.city
+//         })
+//     });
+//     return dataUpdate;
+// }
 
 // 16 Devuelve un listado con todos los clientes que sean de la ciudad 
 //de Madrid y cuyo representante de ventas tenga el código de empleado 11 o 30.
 
 export const getAllMadridClientsWith11And33Code = async()=>{
 
-    let res = await fetch("http://localhost:5501/clients?city=Madrid")
+    let res = await fetch("http://localhost:5321/clients?city=Madrid")
      let data = await res.json();
      let dataUpdated = data.filter (val => ( val.code_employee_sales_manager == "11" || val.code_employee_sales_manager == "33"))
        .map(val => {
@@ -37,7 +51,7 @@ export const getAllMadridClientsWith11And33Code = async()=>{
    }
    //1. Obtén un listado con el nombre de cada cliente y el nombre y apellido de su representante de ventas.
 //    export const getAllClientsAndSalesManager = async()=>{
-//     let res = await fetch("http://localhost:5501/clients")
+//     let res = await fetch("http://localhost:5321/clients")
 //     let data = await res.json();
 //     let dataUpdate = [];
 //     data.forEach(val => {
@@ -58,7 +72,7 @@ export const getAllMadridClientsWith11And33Code = async()=>{
 import { getSalesManager } from "./employees.js";
 export const getClientsName = async()=>{
 
-    let res = await fetch("http://localhost:5501/clients")
+    let res = await fetch("http://localhost:5321/clients")
     let dataClients = await res.json();
     let dataUpdate = [];
     let dataManager = await getSalesManager();
@@ -88,7 +102,7 @@ import { getPayments } from "./payments.js";
 
 export const getClients = async()=>{
 
-    let res = await fetch("http://localhost:5501/clients")
+    let res = await fetch("http://localhost:5321/clients")
     let dataClients = await res.json();
     let dataUpdate = new Set;
     let dataManager = await getSalesManager();
@@ -120,10 +134,10 @@ export const getClients = async()=>{
 //3 multitabla
 
 
-import { getSalesManager } from "./employees.js";
-import { getPayments } from "./payments.js";
+
+// import { getPayments } from "./payments.js";
 export const getClientsNoPay = async() => {
-    let res = await fetch("http://localhost:5501/clients");
+    let res = await fetch("http://localhost:5321/clients");
     let dataClients = await res.json();
     let dataSaleAgents = await getSalesManager();
     let dataPayments = await getPayments();
@@ -223,8 +237,32 @@ export const getAllClientsAndRepresentSalesOffices = async() => {
 
 // 2.10. Devuelve el nombre de los clientes a los que no se les ha entregado a tiempo un pedido.
 
+
+
+
+
+import {getNotInTime} from "./requests.js"
+export const getAllClientsWithLateRequests = async() => {
+    
+    let dataLateRequests = await getNotInTime()
+    let dataClients = await getAllClients()
+    let dataUpdate = []
+    
+    for (let lateRequest of dataLateRequests) {
+        for (let client of dataClients) {
+            if (client.codigoCliente == lateRequest.codigoCliente) {
+                dataUpdate.push({
+                    nombreCliente: client.nombreCliente
+                })
+            }
+        }
+    }
+    
+    return dataUpdate
+}
+
 export const getAllClients = async ()=>{
-    let res =await fetch("http://localhost:5501/clients")
+    let res =await fetch("http://localhost:5321/clients")
     let data=await res.json();
     let dataUpdate = [];
     let clientCodes = new Set();
@@ -240,28 +278,4 @@ export const getAllClients = async ()=>{
         }
     });
     return dataUpdate;
-}
-
-
-
-
-
-import {getNotInTime} from "./requests.js"
-export const getAllClientsWithLateRequests = async() => {
-    
-    let dataLateRequests = await getNotInTime()
-    let dataClients = await getAllClients()
-    let dataUpdate = []
-
-    for (let lateRequest of dataLateRequests) {
-        for (let client of dataClients) {
-            if (client.codigoCliente == lateRequest.codigoCliente) {
-                dataUpdate.push({
-                    nombreCliente: client.nombreCliente
-                })
-            }
-        }
-    }
-
-        return dataUpdate
 }
