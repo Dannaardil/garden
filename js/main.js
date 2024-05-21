@@ -49,7 +49,7 @@ import{
 // console.log(await getAllPayOptions()); //EJERCICIO 13
 // console.log(await getPaypalPaymentsIn2008()); //EJERCICIO 14
 // console.log(await getMoreThan100AndOrnamental());//EJERCICIO 15 
-console.log(await getAllMadridClientsWith11And33Code());//EJERCICIO 16 
+// console.log(await getAllMadridClientsWith11And33Code());//EJERCICIO 16 
 
 
 
