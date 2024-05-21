@@ -3,7 +3,7 @@
 
 export const getMoreThan100AndOrnamental = async()=>{
 
-    let res = await fetch("http://localhost:5506/products?gama=Ornamentales")
+    let res = await fetch("http://localhost:5506/product?gama=Ornamentales")
      let data = await res.json();
      let dataUpdated = data.filter (val => ( val.stock >100))
        .map(val => {
@@ -16,4 +16,22 @@ export const getMoreThan100AndOrnamental = async()=>{
        })
        return dataUpdated.sort((a,b) => b.price_sale - a.price_sale);
    }
+
    
+   export const getAllProducts = async ()=>{
+    let res=  await fetch("http://localhost:5506/product")
+    let data= await res.json();
+    let dataUpdate=[];
+    data.forEach(val => {
+        dataUpdate.push({
+           codigo_producto: val.code_product,
+           nombre_producto: val.name,
+           precio_venta: val.price_sale,
+           proveedor: val.provider,
+           precio_compra: val.price_provider,
+           stock: val.stock,
+           gama: val.gama,
+        });
+    });
+    return dataUpdate
+}
